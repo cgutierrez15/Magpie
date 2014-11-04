@@ -35,13 +35,47 @@ public class Magpie
   {
    response = "Why so negative?";
   }
-  else if (statement.indexOf("mother") >= 0
+  if (statement.indexOf("mother") >= 0
     || statement.indexOf("father") >= 0
     || statement.indexOf("sister") >= 0
     || statement.indexOf("brother") >= 0)
   {
    response = "Tell me more about your family.";
   }
+   if (statement.indexOf("dog") >= 0
+    || statement.indexOf("cat") >= 0
+    || statement.indexOf("fish") >= 0
+    || statement.indexOf("bird") >= 0)
+  {
+   response = "Tell me more about your pets.";
+  }
+    if (statement.indexOf("car") >= 0
+    || statement.indexOf("drive") >= 0
+    || statement.indexOf("tire") >= 0
+    || statement.indexOf("crash") >= 0)
+  {
+   response = "Tell me more about your car.";
+  }
+    if (statement.indexOf("camera") >= 0
+    || statement.indexOf("photo") >= 0
+    || statement.indexOf("picture") >= 0
+    || statement.indexOf("image") >= 0)
+  {
+   response = "Tell me more about your photography.";
+  }
+    if (statement.indexOf("Mr.") >= 0)
+  {
+   response = "He sounds like a good teacher.";
+  }
+    if (statement.indexOf("Mrs.") >= 0)
+  {
+   response = "She sounds like a good teacher.";
+  }
+   if (statement.trim().length() == 0)
+  {
+   response = "Say something to me!";
+  }
+        
   else
   {
    response = getRandomResponse();
@@ -55,7 +89,7 @@ public class Magpie
   */
  private String getRandomResponse()
  {
-  final int NUMBER_OF_RESPONSES = 4;
+  final int NUMBER_OF_RESPONSES = 6;
   double r = Math.random();
   int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
   String response = "";
@@ -76,7 +110,22 @@ public class Magpie
   {
    response = "You don't say.";
   }
+    else if (whichResponse == 4)
+  {
+   response = "What makes you say that?";
+  }
+      else if (whichResponse == 5)
+  {
+   response = "Congratulations! You have received one of 6 randomly generated responses!";
+  }
 
   return response;
  }
 }
+
+// In order to prioritize responses, the reply methods would have to be arranged. 
+//Or, and and statement what would say when the sentence has "mother" and "dog" 
+//it could incorporate a reply with both, or use the last word. 
+//The problem with question1, is that it will respond with a question for vegtables
+// specifically rather than vegtables smothered in cheese, which is what the human is talking about 
+
